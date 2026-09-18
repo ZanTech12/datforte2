@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Users, Award, Microscope } from "lucide-react";
+import { ArrowRight, BookOpen, Users, Award, Microscope, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
@@ -20,7 +20,7 @@ export default function Home() {
     }, 5000); // 5000ms = 5 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [heroImages.length]);
 
   const youtubeVideos = [
     'https://www.youtube.com/embed/komRxiInLiw',
@@ -29,114 +29,153 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div className="bg-white overflow-x-hidden">
       {/* Auto-Rotating Hero Container */}
-      <section className="relative h-screen min-h-[700px] w-full overflow-hidden bg-blue-950">
+      <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-blue-950">
         <AnimatePresence>
           <motion.div
             key={currentImageIndex}
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.15 }}
             animate={{ opacity: 1, scale: 1 }} // Subtle Ken Burns zoom-out effect
             exit={{ opacity: 0, transition: { duration: 1.5 } }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
           />
         </AnimatePresence>
 
-        {/* Adjusted Dark Gradient Overlay for visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/60 via-blue-900/30 to-blue-950/70 backdrop-blur-[2px]"></div>
+        {/* Adjusted Dark Gradient Overlay for depth and visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 via-blue-900/40 to-blue-950/90 backdrop-blur-[3px]"></div>
+        
+        {/* Decorative Grid Pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMTBWNjBIMFYxMFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
 
         {/* Text Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto">
           <Reveal>
-            <p className="text-amber-400 font-bold tracking-[0.3em] uppercase text-sm md:text-base mb-6 drop-shadow-lg">
-              Welcome to the Future of Education
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+              </span>
+              <p className="text-amber-300 font-medium tracking-[0.2em] uppercase text-xs sm:text-sm">
+                Welcome to the Future of Education
+              </p>
+            </div>
           </Reveal>
           
           <Reveal delay={0.2}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight tracking-tight mb-8 drop-shadow-2xl">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-8 drop-shadow-2xl">
               Igniting Minds,
               <br />
-              <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
                 Shaping Futures
               </span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <p className="max-w-3xl text-lg md:text-xl text-blue-100 leading-relaxed font-light drop-shadow-lg">
+            <p className="max-w-2xl text-base sm:text-lg md:text-xl text-blue-100/90 leading-relaxed font-light mb-10 drop-shadow-lg">
               Datforte Int&apos;l Schools Limited provides world-class education that empowers students to innovate, lead, and excel in a global society.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.6}>
+            <Link href="/admissionform" className="group inline-flex items-center gap-2 bg-amber-500 text-blue-950 px-8 py-4 rounded-full font-bold text-base hover:bg-white transition-all duration-300 shadow-2xl shadow-amber-500/30 hover:scale-105">
+              Start Your Journey 
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Reveal>
         </div>
 
         {/* Modern Slider Pagination Dots */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20">
           {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
               className={`h-2 rounded-full transition-all duration-500 ease-in-out ${
-                currentImageIndex === index ? "w-10 bg-amber-500" : "w-2 bg-white/40 hover:bg-white/80"
+                currentImageIndex === index ? "w-12 bg-amber-500" : "w-2 bg-white/40 hover:bg-white/80"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
 
-        {/* Subtle bottom fade to transition into the rest of the site */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none"></div>
+        {/* Scroll Down Indicator */}
+        <motion.div 
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 hidden md:block text-white/70"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-6 w-6" />
+        </motion.div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gray-50 relative z-20">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-white to-slate-50 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-900 tracking-tight">Why Choose Datforte School?</h2>
-            <div className="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
-            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">We provide a comprehensive education that prepares students for the challenges of tomorrow.</p>
+          <Reveal className="text-center mb-16 md:mb-20">
+            <span className="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-3 block">Discover Excellence</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-950 tracking-tight">Why Choose Datforte School?</h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
+            <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">We provide a comprehensive, future-ready education that prepares students for the challenges of tomorrow.</p>
           </Reveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Card 1 */}
             <Reveal delay={0.1}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full group">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-900 transition-colors">
-                  <BookOpen className="h-7 w-7 text-blue-900 group-hover:text-white transition-colors" />
+              <div className="relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 h-full group overflow-hidden hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-900/30 group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-blue-950">Modern Curriculum</h3>
+                  <p className="text-slate-500 leading-relaxed">Comprehensive learning tailored to global standards and future technologies.</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Modern Curriculum</h3>
-                <p className="text-gray-500 leading-relaxed">Comprehensive learning tailored to global standards and future technologies.</p>
               </div>
             </Reveal>
 
+            {/* Card 2 */}
             <Reveal delay={0.2}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full group">
-                <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-colors">
-                  <Users className="h-7 w-7 text-amber-500 group-hover:text-white transition-colors" />
+              <div className="relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 h-full group overflow-hidden hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-blue-950">Expert Teachers</h3>
+                  <p className="text-slate-500 leading-relaxed">Dedicated educators committed to nurturing every student's unique potential.</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Expert Teachers</h3>
-                <p className="text-gray-500 leading-relaxed">Dedicated educators committed to nurturing every student's unique potential.</p>
               </div>
             </Reveal>
 
+            {/* Card 3 */}
             <Reveal delay={0.3}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full group">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-900 transition-colors">
-                  <Microscope className="h-7 w-7 text-blue-900 group-hover:text-white transition-colors" />
+              <div className="relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 h-full group overflow-hidden hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-900/30 group-hover:scale-110 transition-transform duration-300">
+                    <Microscope className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-blue-950">Advanced Facilities</h3>
+                  <p className="text-slate-500 leading-relaxed">State-of-the-art labs, modern libraries, and premium sports complexes.</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Advanced Facilities</h3>
-                <p className="text-gray-500 leading-relaxed">State-of-the-art labs, modern libraries, and premium sports complexes.</p>
               </div>
             </Reveal>
 
+            {/* Card 4 */}
             <Reveal delay={0.4}>
-              <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full group">
-                <div className="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-colors">
-                  <Award className="h-7 w-7 text-amber-500 group-hover:text-white transition-colors" />
+              <div className="relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 h-full group overflow-hidden hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500 ease-out"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-blue-950">Award Winning</h3>
+                  <p className="text-slate-500 leading-relaxed">Recognized for excellence in education and student development nationwide.</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">Award Winning</h3>
-                <p className="text-gray-500 leading-relaxed">Recognized for excellence in education and student development nationwide.</p>
               </div>
             </Reveal>
           </div>
@@ -144,25 +183,28 @@ export default function Home() {
       </section>
 
       {/* School Video Showcase Section */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-900 tracking-tight">School Video Showcase</h2>
-            <div className="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
-            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">Take a visual tour of our vibrant campus and see our students in action.</p>
+          <Reveal className="text-center mb-16 md:mb-20">
+            <span className="text-amber-600 font-semibold tracking-widest uppercase text-sm mb-3 block">Visual Tour</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-950 tracking-tight">School Video Showcase</h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
+            <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">Take a visual tour of our vibrant campus and see our students in action.</p>
           </Reveal>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {youtubeVideos.map((videoUrl, index) => (
               <Reveal key={index} delay={index * 0.15}>
-                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+                <div className="relative aspect-video rounded-3xl overflow-hidden shadow-xl border-4 border-white group transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+                  {/* Modern subtle gradient border overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                   <iframe
                     src={videoUrl}
                     title={`School Showcase Video ${index + 1}`}
                     className="absolute inset-0 w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                  ></iframe>
+                  />
                 </div>
               </Reveal>
             ))}
@@ -171,18 +213,28 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="bg-blue-900 rounded-3xl overflow-hidden relative p-12 md:p-16 text-center">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 rounded-full filter blur-3xl opacity-10 -translate-y-1/2 translate-x-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400 rounded-full filter blur-3xl opacity-20 translate-y-1/2 -translate-x-1/2"></div>
+            <div className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 rounded-[2rem] md:rounded-[3rem] overflow-hidden p-10 md:p-16 lg:p-20 text-center shadow-2xl">
+              
+              {/* Background Decorative Elements */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500 rounded-full filter blur-[100px] opacity-20 -translate-y-1/3 translate-x-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-400 rounded-full filter blur-[100px] opacity-30 translate-y-1/3 -translate-x-1/3"></div>
+                {/* Grid Pattern Overlay */}
+              <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMTBWNjBIMFYxMFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] pointer-events-none"></div>
               
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Join Our Community?</h2>
-                <p className="text-blue-100 mb-8 max-w-xl mx-auto">Take the first step towards a brighter future. Admissions for 2026-2027 are open.</p>
-                <Link href="/admissionform" className="inline-flex items-center bg-amber-500 text-blue-900 px-8 py-3.5 rounded-lg font-semibold hover:bg-white transition-all shadow-lg hover:-translate-y-0.5">
-                  Start Your Application <ArrowRight className="ml-2 h-5 w-5" />
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+                  Ready to Join Our <br/>
+                  <span className="text-amber-400">Community?</span>
+                </h2>
+                <p className="text-blue-100/90 mb-10 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+                  Take the first step towards a brighter future. Admissions for 2026-2027 are now open.
+                </p>
+                <Link href="/admissionform" className="group inline-flex items-center gap-2 bg-amber-500 text-blue-950 px-10 py-4 rounded-full font-bold text-lg hover:bg-white transition-all duration-300 shadow-xl hover:scale-105">
+                  Start Your Application 
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
