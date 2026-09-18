@@ -68,12 +68,12 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link 
-              href="/login" 
+            <a 
+              href="https://sms.datforteschools.com.ng" 
               className="whitespace-nowrap ml-4 bg-amber-500 text-blue-900 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-amber-500/20 hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-500/30 active:scale-90 transition-all duration-200"
             >
               Login
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,13 +110,13 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link 
-              href="/login" 
+            <a 
+              href="https://sms.datforteschools.com.ng" 
               className="whitespace-nowrap block w-full text-center bg-amber-500 text-blue-900 px-4 py-3 rounded-xl text-base font-semibold hover:bg-amber-400 active:scale-95 transition-all duration-200 mt-3"
               onClick={() => setIsOpen(false)}
             >
               Login
-            </Link>
+            </a>
           </div>
         </div>
       )}

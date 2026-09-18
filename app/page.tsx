@@ -180,7 +180,7 @@ export default function Home() {
               
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Join Our Community?</h2>
-                <p className="text-blue-100 mb-8 max-w-xl mx-auto">Take the first step towards a brighter future. Admissions for 2024-2025 are open.</p>
+                <p className="text-blue-100 mb-8 max-w-xl mx-auto">Take the first step towards a brighter future. Admissions for 2026-2027 are open.</p>
                 <Link href="/admissionform" className="inline-flex items-center bg-amber-500 text-blue-900 px-8 py-3.5 rounded-lg font-semibold hover:bg-white transition-all shadow-lg hover:-translate-y-0.5">
                   Start Your Application <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

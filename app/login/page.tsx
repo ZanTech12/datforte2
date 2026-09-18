@@ -1,8 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import { FormEvent } from "react";
 
 export default function Login() {
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevents default page reload
+    // Opens the link only when this function is triggered (button press)
+    window.location.href = "https://sms.datforteschools.com.ng";
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background abstract shapes */}
@@ -20,7 +29,9 @@ export default function Login() {
               Sign in to access your account
             </p>
           </div>
-          <form className="space-y-5">
+          
+          {/* Form triggers handleLogin ONLY on submit (button press) */}
+          <form onSubmit={handleLogin} className="space-y-5">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email address</label>
               <input id="email" name="email" type="email" required className="appearance-none rounded-xl relative block w-full px-4 py-3 border border-gray-200 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent transition" placeholder="Enter your email" />
@@ -41,11 +52,12 @@ export default function Login() {
             </div>
 
             <div>
-              <button type="submit" className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 transition">
-                Sign in
+              <button type="submit" className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 transition"><a href="sms.datforteschools.com.ng">
+                Sign in</a>
               </button>
             </div>
           </form>
+          
           <div className="mt-6 text-center">
             <Link href="/" className="text-sm font-medium text-gray-500 hover:text-blue-900">
               &larr; Back to Home
