@@ -9,7 +9,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Fountain Hills Schools | Excellence in Education",
+  title: "Datforte Int'l Schools Limited | Excellence in Education",
   description: "An advanced school website built with Next.js",
 };
 

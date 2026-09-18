@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
             <div className="flex items-center space-x-2 text-white font-bold text-xl mb-4">
-              <span>Fountain Hills Schools</span>
+              <span>Datforte Int&apos;l Schools Limited</span>
             </div>
             <p className="text-sm leading-relaxed">Empowering students to create the future. Join our community of excellence and innovation.</p>
           </div>
@@ -42,20 +42,20 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" /> 
-                <span>Umuameshi Emeke Obibiezena, Owerri North, Imo State</span>
+                <span>14, Ahmed Tijani Street Ahmadiyya Bus Stop, Ijaiye, Lagos, Nigeria.</span>
               </li>
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col">
-                  <a href="tel:09022484202" className="hover:text-amber-500 transition-colors">09022484202</a>
-                  <a href="tel:09024483411" className="hover:text-amber-500 transition-colors">09024483411</a>
-                  <a href="tel:08068705523" className="hover:text-amber-500 transition-colors">08068705523</a>
+                  <a href="tel:07069376367" className="hover:text-amber-500 transition-colors">07069376367</a>
+                  <a href="tel:08063118872" className="hover:text-amber-500 transition-colors">08063118872</a>
+                  <a href="tel:07038832077" className="hover:text-amber-500 transition-colors">07038832077</a>
                 </div>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" />
-                <a href="mailto:fountainhillssch2000@gmail.com" className="hover:text-amber-500 transition-colors break-all">
-                  fountainhillssch2000@gmail.com
+                <a href="mailto:info@datforteschools.com.ng" className="hover:text-amber-500 transition-colors break-all">
+                  info@datforteschools.com.ng
                 </a>
               </li>
             </ul>
@@ -71,8 +71,21 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        
+        {/* Copyright Section */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Fountain Hills Schools. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Datforte Int&apos;l Schools Limited. All rights reserved.</p>
+          <p className="mt-2 text-gray-400">
+            Project by:{" "}
+            <a 
+              href="https://www.bimtechsolutions.com.ng" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-amber-500 hover:text-amber-400 transition-colors font-medium"
+            >
+              BimoTech Solutions
+            </a>
+          </p>
         </div>
       </div>
     </footer>

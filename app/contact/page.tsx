@@ -24,7 +24,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">Address</h4>
-                  <p className="text-gray-500">Umuameshi Emeke Obibiezena, Owerri North, Imo State</p>
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Datforte+International+Schools+Ahmed+Tijani+Street+Ijaiye+Lagos" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-900 transition-colors"
+                  >
+                    14, Ahmed Tijani Street Ahmadiyya Bus Stop, Ijaiye, Lagos, Nigeria.
+                  </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -46,14 +53,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">Email</h4>
-                  <a href="mailto:fountainhillssch2000@gmail.com" className="text-gray-500 hover:text-blue-900 transition-colors break-all">
-                    fountainhillssch2000@gmail.com
+                  <a href="mailto:info@datforteschools.com.ng" className="text-gray-500 hover:text-blue-900 transition-colors break-all">
+                    info@datforteschools.com.ng
                   </a>
                 </div>
               </div>
             </div>
             <iframe 
-              src="https://maps.google.com/maps?q=Owerri%20North%2C%20Imo%20State&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.9189089466895!2d3.286239873627623!3d6.656972493337839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b96d7e2d46d41%3A0x9812c6d8514435f8!2sDatforte%20International%20Schools!5e0!3m2!1sen!2sng!4v1756192435661!5m2!1sen!2sng" 
               className="w-full h-64 rounded-2xl border-0 shadow-sm" 
               allowFullScreen 
               loading="lazy"

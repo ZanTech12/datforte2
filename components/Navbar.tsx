@@ -33,8 +33,8 @@ export default function Navbar() {
           >
             <div className="relative flex-shrink-0">
               <Image 
-                src="/logo.jpeg" 
-                alt="Fountain Hills Schools Logo" 
+                src="/logo.png" 
+                alt="Datforte Int'l Schools Limited Logo" 
                 width={48} 
                 height={48} 
                 className="h-12 w-12 rounded-full object-cover ring-2 ring-amber-500/50 shadow-sm transition-all group-hover:ring-amber-500"
@@ -42,7 +42,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col leading-tight">
               <span className="font-extrabold text-lg text-blue-900 tracking-tight">
-                Fountain Hills
+                Datforte Int'l
               </span>
               <span className="text-[10px] font-bold text-amber-600 tracking-[0.2em] uppercase mt-0.5">
                 Schools

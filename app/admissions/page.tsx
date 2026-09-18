@@ -9,7 +9,7 @@ export default function Admissions() {
         <div className="relative z-10">
           <h1 className="text-5xl font-bold tracking-tight">Admissions</h1>
           <div className="w-20 h-1 bg-amber-500 mx-auto mt-6 rounded-full"></div>
-          <p className="mt-6 text-lg text-blue-100">Begin your journey with Fountain Hills Schools</p>
+          <p className="mt-6 text-lg text-blue-100">Begin your journey with Datforte Int'l Schools Limited</p>
         </div>
       </div>
       
@@ -48,7 +48,7 @@ export default function Admissions() {
           <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-12 rounded-3xl text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 rounded-full filter blur-3xl opacity-10 -translate-y-1/2 translate-x-1/2"></div>
             <h2 className="text-3xl font-bold mb-4 relative z-10">Ready to Apply?</h2>
-            <p className="text-blue-100 mb-8 max-w-2xl mx-auto relative z-10">Applications for the 2024-2025 academic year are now open. Spaces are limited.</p>
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto relative z-10">Applications for the 2026-2027 academic year are now open. Spaces are limited.</p>
             <a href="/contact" className="inline-block bg-amber-500 text-blue-900 px-8 py-3.5 rounded-lg font-semibold hover:bg-white transition-all shadow-lg relative z-10">Start Application</a>
           </div>
         </Reveal>

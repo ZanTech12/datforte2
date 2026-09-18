@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto text-blue-50 font-light"
         >
-          Fountain Hills Schools provides world-class education that empowers students to innovate, lead, and excel in a global society.
+          Datforte Int'l Schools Limited provides world-class education that empowers students to innovate, lead, and excel in a global society.
         </motion.p>
 
         <motion.div 

@@ -19,14 +19,48 @@ const LinkedinIcon = () => (
 );
 
 const staff = [
-  { name: "Mrs. Mary Joseph", role: "Proprietress", img: "/images/Proprietress.jpeg", quote: "A school is a building with four walls and tomorrow inside." },
-  { name: "Mr. Joseph Peter Obinna", role: "Director and Founder", img: "/images/Director.jpeg", quote: "The roots of education are bitter, but the fruit is sweet." },
-  { name: "Mrs. Cecilia Maduagwu", role: "Co-founder", img: "/images/co-founder.jpeg", quote: "Education is not the filling of a pail, but the lighting of a fire." },
-  { name: "Mrs. Queen Ononiwu", role: "Principal", img: "/images/Principal.jpeg", quote: "The function of education is to teach one to think intensively and critically." },
-  { name: "Mrs. Chioma Opara", role: "Head Teacher", img: "/images/Headteacher.jpeg", quote: "The beautiful thing about learning is that no one can take it away from you." },
-  { name: "Mrs. Esther Ugochukwu", role: "Asst. Head Teacher", img: "/images/Asstheadteacher.jpeg", quote: "Children must be taught how to think, not what to think." },
-  { name: "Mrs. Immaculate Joshua", role: "Phonics Director", img: "/images/phonicsdirector.jpeg", quote: "Reading is to the mind what exercise is to the body." },
-  { name: "Miss Blessing Osuji", role: "School Bursar", img: "/images/schoolbursar.jpeg", quote: "An investment in education pays the best interest." },
+  { 
+    name: "Mr Adebayo Oluwafemi", 
+    role: "Principal", 
+    img: "/images/principal.jpg", 
+    quote: "Welcome to our school community! We are dedicated to fostering a nurturing environment that promotes academic and personal growth. Join us in making a positive impact." 
+  },
+  { 
+    name: "Mr. Raphael Nwabuikwu", 
+    role: "Vice Principal", 
+    img: "/images/vc.jpg", 
+    quote: "Together, we can achieve greatness. Let's work hand-in-hand to shape the future and build a thriving school environment." 
+  },
+  { 
+    name: "Mrs. Obinna Chinomnso", 
+    role: "Head of Primary School", 
+    img: "/images/Head Of Primary.jpg", 
+    quote: "Teaching is not just about imparting knowledge; it's about inspiring a love for learning and encouraging growth." 
+  },
+  { 
+    name: "Mr. Babatunde Kayode", 
+    role: "HOD Primary Section", 
+    img: "/images/HOD Primary Section.jpg", 
+    quote: "The beautiful thing about learning is that no one can take it away from you" 
+  },
+  { 
+    name: "Mrs. Bamigboye Esther", 
+    role: "The School Administrator", 
+    img: "/images/admind.jpg", 
+    quote: "Every challenge in education is an opportunity for growth; embrace it with open arms." 
+  },
+  { 
+    name: "Mrs. Sokunbi", 
+    role: "The School Counsellor", 
+    img: "/images/counsel.jpg", 
+    quote: "You will face setbacks — everyone does. But every time you get back up, you become stronger, wiser, and more prepared for life beyond school." 
+  },
+  { 
+    name: "Mrs. Onadele", 
+    role: "Head of the Nursery Section", 
+    img: "/images/hop.jpg", 
+    quote: "In these little hands lie the future. Every smile we nurture, every word we speak, and every moment we share helps shape a lifetime of confidence, kindness, and curiosity. Let's build strong roots — one gentle day at a time." 
+  },
 ];
 
 // Individual Staff Card Component with Slide-to-Reveal Animation
