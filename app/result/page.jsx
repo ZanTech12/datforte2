@@ -277,7 +277,7 @@ export default function ResultCheckerPage() {
                                         {/* CENTER - School Info */}
                                         <div className="flex-1 text-center min-w-0">
                                             <h1 className="text-lg font-bold uppercase tracking-wide text-[#1a365d]" style={{ fontFamily: 'Georgia, serif' }}>
-                                                {siteInfo?.schoolName?.toUpperCase() || 'FOUNTAIN HILLS SCHOOLS'}
+                                                {siteInfo?.schoolName?.toUpperCase() || 'DATFORTE INTERNATIONAL SCHOOLS LIMITED (DISL)'}
                                             </h1>
                                             {siteInfo?.schoolMotto && (
                                                 <p className="text-[9px] italic text-gray-500 mt-0.5">"{siteInfo.schoolMotto}"</p>
@@ -514,7 +514,7 @@ export default function ResultCheckerPage() {
                                         {siteInfo?.website ? (
                                             <span>Web: {siteInfo.website}</span>
                                         ) : (
-                                            <span>Web: www.fountainhills.com</span>
+                                            <span>Web: www.datforteschools.com.ng</span>
                                         )}
                                     </div>
                                 </footer>
